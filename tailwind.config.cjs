@@ -29,11 +29,11 @@ module.exports = {
     extend: {
       colors: {
         white: "#FFFFFF",
-        black: "#212b36",
+        black: "#2C2F32",
         "dark-700": "#090e34b3",
         dark: {
-          DEFAULT: "#111928",
-          2: "#1F2A37",
+          DEFAULT: "#282B2D",
+          2: "#2C2F32",
           3: "#374151",
           4: "#4B5563",
           5: "#6B7280",

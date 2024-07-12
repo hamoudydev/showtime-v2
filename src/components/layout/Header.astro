@@ -61,11 +61,11 @@ const menuitems = [
         Astro.url.pathname !== '/' && (
           <nav class="sm: flex w-full items-center justify-evenly px-4">
             <a
-              href={Astro.url.pathname === '/volleyball' ? '/basketball' : '/volleyball'}
+              href={Astro.url.pathname === '/volleyball/' ? '/basketball/' : '/volleyball/'}
               type="button"
               class="inline-flex items-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-white dark:text-black dark:hover:bg-orange-500 dark:focus:ring-orange-800"
             >
-              {Astro.url.pathname === '/volleyball' ? '🏀 Basketball' : '🏐 Volleyball'}
+              {Astro.url.pathname === '/volleyball/' ? '🏀 Basketball' : '🏐 Volleyball'}
               <svg
                 class="ms-2 h-3.5 w-3.5 rtl:rotate-180"
                 aria-hidden="true"

@@ -59,30 +59,7 @@ const menuitems = [
       </div>
       {
         Astro.url.pathname !== '/' && (
-          <nav class="sm: flex w-full items-center justify-evenly px-4">
-            <a
-              href={Astro.url.pathname === '/volleyball/' ? '/basketball/' : '/volleyball/'}
-              type="button"
-              class="inline-flex items-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-4 focus:ring-orange-300 dark:bg-white dark:text-black dark:hover:bg-orange-500 dark:focus:ring-orange-800"
-            >
-              {Astro.url.pathname === '/volleyball/' ? '🏀 Basketball' : '🏐 Volleyball'}
-              <svg
-                class="ms-2 h-3.5 w-3.5 rtl:rotate-180"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </a>
-          </nav>
+          <nav class="sm: flex w-full items-center justify-evenly px-4"></nav>
         )
       }
 

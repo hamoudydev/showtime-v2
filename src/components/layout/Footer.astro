@@ -1,114 +1,39 @@
----
-import { getCollection } from 'astro:content';
-
-// Filter blog entries with 'draft: false' & date before current date
-const publishedBlogEntries = await getCollection('blog', ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
-
-// Sort content entries by publication date
-publishedBlogEntries.sort(function (a, b) {
-  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
-});
-
-const footerLinks = [
-  {
-    header: 'About Us',
-    links: [
-      {
-        name: 'Home',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Features',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'About',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Testimonial',
-        href: '/',
-        isExternal: false,
-      },
-    ],
-  },
-  {
-    header: 'Features',
-    links: [
-      {
-        name: 'How it works',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Privacy policy',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Terms of Service',
-        href: '/',
-        isExternal: false,
-      },
-      {
-        name: 'Refund policy',
-        href: '/',
-        isExternal: false,
-      },
-    ],
-  },
-  {
-    header: 'Our Products',
-    links: [
-      {
-        name: 'Lineicons',
-        href: 'https://lineicons.com/',
-        isExternal: true,
-      },
-      {
-        name: 'TailAdmin',
-        href: 'https://tailadmin.com/',
-        isExternal: true,
-      },
-      {
-        name: 'TailGrids',
-        href: 'https://tailgrids.com/',
-        isExternal: true,
-      },
-      {
-        name: 'UIdeck',
-        href: 'https://uideck.com/',
-        isExternal: true,
-      },
-    ],
-  },
-  {
-    header: 'Latest blog',
-    links: [],
-  },
-];
----
-
-<!-- ====== Footer Section Start -->
-<footer class="wow fadeInUp relative z-10 bg-[#1E2022] pt-20 lg:pt-[100px]" data-wow-delay=".15s">
-  <div class="container">
-    <div class="-mx-4 flex flex-wrap">
-      <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-4/12 xl:w-3/12">
-        <div class="mb-10 w-full">
-          <a href="/" class="mb-6 inline-block max-w-[160px]">
-            <img src="/assets/logo/logo.png" alt="logo" class="max-w-full" />
-          </a>
-          <p class="mb-8 max-w-[270px] text-base text-gray-7"></p>
+<div class="flex flex-col bg-dark-black">
+  <div class="container mx-auto flex flex-col">
+    <div class="my-24 flex w-full flex-col items-center">
+      <span class="mb-8">
+        <p class="text-3xl font-bold text-white"></p>
+      </span>
+      <div class="mb-8 flex flex-col items-center gap-6">
+        <div class="flex items-center gap-8">
           <div class="-mx-3 flex items-center">
+            <a
+              href="https://instagram.com/showtime_basketballcamps"
+              class="px-3 text-gray-7 hover:text-white"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="fill-current"
+              >
+                <path
+                  d="M11.0297 14.4305C12.9241 14.4305 14.4598 12.8948 14.4598 11.0004C14.4598 9.10602 12.9241 7.57031 11.0297 7.57031C9.13529 7.57031 7.59958 9.10602 7.59958 11.0004C7.59958 12.8948 9.13529 14.4305 11.0297 14.4305Z"
+                ></path>
+                <path
+                  d="M14.7554 1.8335H7.24463C4.25807 1.8335 1.83334 4.25823 1.83334 7.24479V14.6964C1.83334 17.7421 4.25807 20.1668 7.24463 20.1668H14.6962C17.7419 20.1668 20.1667 17.7421 20.1667 14.7555V7.24479C20.1667 4.25823 17.7419 1.8335 14.7554 1.8335ZM11.0296 15.4948C8.51614 15.4948 6.53496 13.4545 6.53496 11.0002C6.53496 8.54586 8.54571 6.50554 11.0296 6.50554C13.4839 6.50554 15.4946 8.54586 15.4946 11.0002C15.4946 13.4545 13.5134 15.4948 11.0296 15.4948ZM17.2393 6.91952C16.9436 7.24479 16.5 7.42221 15.9973 7.42221C15.5538 7.42221 15.1102 7.24479 14.7554 6.91952C14.4301 6.59425 14.2527 6.18027 14.2527 5.67758C14.2527 5.17489 14.4301 4.79049 14.7554 4.43565C15.0807 4.08081 15.4946 3.90339 15.9973 3.90339C16.4409 3.90339 16.914 4.08081 17.2393 4.40608C17.535 4.79049 17.7419 5.23403 17.7419 5.70715C17.7124 6.18027 17.535 6.59425 17.2393 6.91952Z"
+                ></path>
+                <path
+                  d="M16.0276 4.96777C15.6432 4.96777 15.318 5.29304 15.318 5.67745C15.318 6.06186 15.6432 6.38713 16.0276 6.38713C16.412 6.38713 16.7373 6.06186 16.7373 5.67745C16.7373 5.29304 16.4416 4.96777 16.0276 4.96777Z"
+                ></path>
+              </svg>
+            </a>
             <a href="mailto:info@showtimecamps.com" class="px-3 text-gray-7 hover:text-white">
               <svg
-                width="22"
-                height="22"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -132,8 +57,8 @@ const footerLinks = [
             </a>
             <a href="tel:+13132889373" class="px-3 text-gray-7 hover:text-white">
               <svg
-                width="22"
-                height="22"
+                width="32"
+                height="32"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -152,179 +77,21 @@ const footerLinks = [
                 <path d="M9 19.5H15" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
               </svg>
             </a>
-            <a
-              href="https://instagram.com/showtime_basketballcamps"
-              class="px-3 text-gray-7 hover:text-white"
-            >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="fill-current"
-              >
-                <path
-                  d="M11.0297 14.4305C12.9241 14.4305 14.4598 12.8948 14.4598 11.0004C14.4598 9.10602 12.9241 7.57031 11.0297 7.57031C9.13529 7.57031 7.59958 9.10602 7.59958 11.0004C7.59958 12.8948 9.13529 14.4305 11.0297 14.4305Z"
-                ></path>
-                <path
-                  d="M14.7554 1.8335H7.24463C4.25807 1.8335 1.83334 4.25823 1.83334 7.24479V14.6964C1.83334 17.7421 4.25807 20.1668 7.24463 20.1668H14.6962C17.7419 20.1668 20.1667 17.7421 20.1667 14.7555V7.24479C20.1667 4.25823 17.7419 1.8335 14.7554 1.8335ZM11.0296 15.4948C8.51614 15.4948 6.53496 13.4545 6.53496 11.0002C6.53496 8.54586 8.54571 6.50554 11.0296 6.50554C13.4839 6.50554 15.4946 8.54586 15.4946 11.0002C15.4946 13.4545 13.5134 15.4948 11.0296 15.4948ZM17.2393 6.91952C16.9436 7.24479 16.5 7.42221 15.9973 7.42221C15.5538 7.42221 15.1102 7.24479 14.7554 6.91952C14.4301 6.59425 14.2527 6.18027 14.2527 5.67758C14.2527 5.17489 14.4301 4.79049 14.7554 4.43565C15.0807 4.08081 15.4946 3.90339 15.9973 3.90339C16.4409 3.90339 16.914 4.08081 17.2393 4.40608C17.535 4.79049 17.7419 5.23403 17.7419 5.70715C17.7124 6.18027 17.535 6.59425 17.2393 6.91952Z"
-                ></path>
-                <path
-                  d="M16.0276 4.96777C15.6432 4.96777 15.318 5.29304 15.318 5.67745C15.318 6.06186 15.6432 6.38713 16.0276 6.38713C16.412 6.38713 16.7373 6.06186 16.7373 5.67745C16.7373 5.29304 16.4416 4.96777 16.0276 4.96777Z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
-        <div class="mb-10 w-full">
-          <h4 class="mb-9 text-lg font-semibold text-white">{footerLinks[0].header}</h4>
-          <ul>
-            {
-              footerLinks[0].links.map((link) => {
-                if ('name' in link) {
-                  return (
-                    <li>
-                      <a
-                        href={link.href}
-                        class="mb-3 inline-block text-base text-gray-7 hover:text-primary"
-                        target={link.isExternal ? '_blank' : undefined}
-                        rel={link.isExternal ? 'noopener' : undefined}
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  );
-                }
-              })
-            }
-          </ul>
-        </div>
-      </div>
-      <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
-        <div class="mb-10 w-full">
-          <h4 class="mb-9 text-lg font-semibold text-white">{footerLinks[1].header}</h4>
-          <ul>
-            {
-              footerLinks[1].links.map((link) => {
-                if ('name' in link) {
-                  return (
-                    <li>
-                      <a
-                        href={link.href}
-                        class="mb-3 inline-block text-base text-gray-7 hover:text-primary"
-                        target={link.isExternal ? '_blank' : undefined}
-                        rel={link.isExternal ? 'noopener' : undefined}
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  );
-                }
-              })
-            }
-          </ul>
-        </div>
-      </div>
-      <div class="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-3/12 xl:w-2/12">
-        <div class="mb-10 w-full">
-          <h4 class="mb-9 text-lg font-semibold text-white">{footerLinks[2].header}</h4>
-          <ul>
-            {
-              footerLinks[2].links.map((link) => {
-                if ('name' in link) {
-                  return (
-                    <li>
-                      <a
-                        href={link.href}
-                        class="mb-3 inline-block text-base text-gray-7 hover:text-primary"
-                        target={link.isExternal ? '_blank' : undefined}
-                        rel={link.isExternal ? 'noopener' : undefined}
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  );
-                }
-              })
-            }
-          </ul>
-        </div>
-      </div> -->
-      <!-- <div class="w-full px-4 md:w-2/3 lg:w-6/12 xl:w-3/12">
-        <div class="mb-10 w-full">
-          <h4 class="mb-9 text-lg font-semibold text-white">{footerLinks[3].header}</h4>
-          <ul class="flex flex-col gap-8">
-            {
-              publishedBlogEntries.slice(0, 2).map((blogPostEntry, index) => (
-                <li>
-                  <a
-                    class="group flex items-center gap-[22px]"
-                    href={`/blog/${blogPostEntry.slug}`}
-                  >
-                    <div class="h-full max-h-12 w-full max-w-[70px] overflow-hidden rounded">
-                      <img src={blogPostEntry.data.image.src} alt={blogPostEntry.data.image.alt} />
-                    </div>
-                    <span class="max-w-[180px] text-base text-gray-7 group-hover:text-white">
-                      {blogPostEntry.data.title.slice(0, 35)} ...
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div> -->
-    </div>
-  </div>
-
-  <div class="mt-12 border-t border-[#8890A4] border-opacity-40 py-8 lg:mt-[60px]">
-    <div class="container">
-      <div class="-mx-4 flex flex-wrap">
-        <div class="w-full px-4 md:w-2/3 lg:w-1/2">
-          <div class="my-1">
-            <div class="-mx-3 flex items-center justify-center md:justify-start">
-              <!--               <a
-                href="javascript:void(0)"
-                class="px-3 text-base text-gray-7 hover:text-white hover:underline"
-              >
-                Privacy policy
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="px-3 text-base text-gray-7 hover:text-white hover:underline"
-              >
-                Legal notice
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="px-3 text-base text-gray-7 hover:text-white hover:underline"
-              >
-                Terms of service
-              </a> -->
-            </div>
-          </div>
-        </div>
-        <div class="w-full px-4">
-          <div class="my-1 flex">
-            <p class="text-base text-gray-7">
-              Developed & Hosted by
-              <a
-                href="https://dearborn.io"
-                rel="nofollow noopner"
-                target="_blank"
-                class="text-gray-1 hover:underline"
-              >
-                Dearborn I/O
-              </a>
-            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</footer>
+</div>
 
-<!-- ====== Footer Section End -->
+<div class="flex flex-wrap bg-dark-black">
+  <div class="mx-auto mb-20 w-full max-w-full text-center sm:w-3/4">
+    <p class="py-1 text-sm text-slate-500">
+      Developed & Hosted by <a
+        href="https://www.loopple.com/theme/motion-landing-library?ref=tailwindcomponents"
+        class="text-white hover:text-slate-900"
+        target="_blank">Dearborn I/O</a
+      >.
+    </p>
+  </div>
+</div>
